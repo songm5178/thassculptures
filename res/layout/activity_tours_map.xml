@@ -24,11 +24,11 @@
             android:src="@drawable/art_spaces_logo" />
 
         <ListView
-            android:id="@+id/listView1"
+            android:id="@+id/listview_sculpture"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_weight="1"
             android:scrollbars="vertical" >
         </ListView>
     </LinearLayout>

@@ -1,36 +1,22 @@
 package edu.rosehulman.thassculptures;
 
-import java.util.ArrayList;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
-public class ToursMapActivity extends Activity {
+public class ArtistPageActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_tours_map);
-		ListView listView = (ListView) findViewById(R.id.listview_sculpture);
-		
-		ArrayList<String> names = new ArrayList<String>();
-		names.add("James");
-		names.add("Min");
-		names.add("Rocco");
-		names.add("Munchi");
-		
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, names);
-		listView.setAdapter(adapter);
+		setContentView(R.layout.activity_artist_page);
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.tours_map, menu);
+		getMenuInflater().inflate(R.menu.artist_page, menu);
 		return true;
 	}
 

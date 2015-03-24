@@ -3,6 +3,38 @@
     tools:context="edu.rosehulman.thassculptures.SculptureActivity" >
 
     <item
+        android:id="@+id/share_menu"
+        android:icon="@android:drawable/ic_menu_share"
+        android:orderInCategory="100"
+        android:showAsAction="ifRoom"
+        android:title="@string/share_menu_text"/>
+    <item
+        android:id="@+id/audio_menu"
+        android:icon="@android:drawable/ic_media_play"
+        android:orderInCategory="100"
+        android:showAsAction="ifRoom"
+        android:title="@string/audio_menu_text"/>
+    <item
+        android:id="@+id/artist_profile_menu"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/artist_menu_text"/>
+    <item
+        android:id="@+id/map_menu"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/map_menu_text"/>
+    <item
+        android:id="@+id/notebook_menu"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/notebook_menu_text"/>
+    <item
+        android:id="@+id/about_menu"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/about_menu_text"/>
+    <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:showAsAction="never"

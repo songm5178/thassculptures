@@ -38,6 +38,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="edu.rosehulman.thassculptures.MainActivity" />
         </activity>
+        <activity
+            android:name=".ArtistPageActivity"
+            android:label="@string/title_activity_artist_page"
+            android:parentActivityName=".SculptureActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="edu.rosehulman.thassculptures.SculptureActivity" />
+        </activity>
     </application>
 
 </manifest>
