@@ -65,8 +65,6 @@ public class SculptureActivity extends Activity {
 
 		new QueryForCommentsTask().execute();
 
-	
-
 	}
 
 	private void setUpSculptureCard() {
@@ -201,15 +199,14 @@ public class SculptureActivity extends Activity {
 				Log.d("MIN", "Failed loading comments");
 				return;
 			}
-			ArrayList<String> comments = new ArrayList<String>();
+			ArrayList<com.appspot.thassculptures.sculptures.model.Comment> comments = new ArrayList<com.appspot.thassculptures.sculptures.model.Comment>();
 			for (com.appspot.thassculptures.sculptures.model.Comment c : result.getItems()) {
 				if (mSculpture.getEntityKey().equals(c.getSculptureKey())) {
-					comments.add(c.getContent());
+					comments.add(c);
 				}
 			}
+			CommentsListAdapter adapter = new CommentsListAdapter(SculptureActivity.this, comments);
 
-			ArrayAdapter<String> adapter = new ArrayAdapter<String>(SculptureActivity.this,
-					android.R.layout.simple_list_item_1, comments);
 			listView.setAdapter(adapter);
 			listView.setOnTouchListener(new OnTouchListener() {
 				// Setting on Touch Listener for handling the touch inside

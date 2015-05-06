@@ -480,13 +480,13 @@ containing a value of this type.
         public static final int powered_by_google_light=0x7f020022;
     }
     public static final class id {
-        public static final int about_menu=0x7f0b0038;
-        public static final int action_settings=0x7f0b0032;
+        public static final int about_menu=0x7f0b003a;
+        public static final int action_settings=0x7f0b0034;
         public static final int adjust_height=0x7f0b0000;
         public static final int adjust_width=0x7f0b0001;
         public static final int art_spaces_imageview=0x7f0b001b;
-        public static final int artist_profile_menu=0x7f0b0035;
-        public static final int audio_menu=0x7f0b0034;
+        public static final int artist_profile_menu=0x7f0b0037;
+        public static final int audio_menu=0x7f0b0036;
         public static final int book_now=0x7f0b0010;
         public static final int button_donate=0x7f0b0023;
         public static final int button_gallery=0x7f0b001e;
@@ -514,17 +514,17 @@ containing a value of this type.
         public static final int listview_comments=0x7f0b002d;
         public static final int listview_sculptures_tours=0x7f0b002f;
         public static final int map=0x7f0b002e;
-        public static final int map_menu=0x7f0b0036;
+        public static final int map_menu=0x7f0b0038;
         public static final int match_parent=0x7f0b000e;
         public static final int monochrome=0x7f0b0016;
         public static final int none=0x7f0b0002;
         public static final int normal=0x7f0b0004;
-        public static final int notebook_menu=0x7f0b0037;
+        public static final int notebook_menu=0x7f0b0039;
         public static final int production=0x7f0b0009;
         public static final int sandbox=0x7f0b000a;
         public static final int satellite=0x7f0b0005;
         public static final int selectionDetails=0x7f0b000d;
-        public static final int share_menu=0x7f0b0033;
+        public static final int share_menu=0x7f0b0035;
         public static final int slide=0x7f0b0017;
         public static final int strict_sandbox=0x7f0b000b;
         public static final int terrain=0x7f0b0006;
@@ -533,9 +533,11 @@ containing a value of this type.
         public static final int textView_sculptureArtist=0x7f0b0026;
         public static final int textView_sculptureDescription=0x7f0b0028;
         public static final int textView_sculptureName=0x7f0b0025;
+        public static final int textview_comment_author=0x7f0b0030;
+        public static final int textview_comment_content=0x7f0b0031;
         public static final int textview_gallery=0x7f0b002b;
-        public static final int thumbnail_sculpture_image=0x7f0b0031;
-        public static final int thumbnail_textView_sculpture_title=0x7f0b0030;
+        public static final int thumbnail_sculpture_image=0x7f0b0033;
+        public static final int thumbnail_textView_sculpture_title=0x7f0b0032;
         public static final int wrap_content=0x7f0b000f;
     }
     public static final class integer {
@@ -547,7 +549,8 @@ containing a value of this type.
         public static final int activity_main=0x7f030002;
         public static final int activity_sculpture=0x7f030003;
         public static final int activity_tours_map=0x7f030004;
-        public static final int view_gallery=0x7f030005;
+        public static final int view_comments=0x7f030005;
+        public static final int view_gallery=0x7f030006;
     }
     public static final class menu {
         public static final int artist_page=0x7f0a0000;
