@@ -16,9 +16,10 @@
         <ImageView
             android:id="@+id/imageView_sculpture"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:layout_gravity="center_vertical|center_horizontal"
-            android:src="@drawable/gatekeepercoll" />
+            android:src="@android:drawable/picture_frame" />
 
         <TextView
             android:id="@+id/textView_sculptureName"
@@ -29,7 +30,7 @@
             android:textSize="25sp" />
 
         <TextView
-            android:id="@+id/textView_sculptureAuthor"
+            android:id="@+id/textView_sculptureArtist"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/sculpture_author"

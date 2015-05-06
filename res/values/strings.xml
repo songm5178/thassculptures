@@ -27,5 +27,7 @@
     <string name="add_gallery_text">Add a Picture</string>
     <string name="title_activity_artist_page">ArtistPageActivity</string>
     <string name="title_activity_gallery">GalleryActivity</string>
+    
+    <string name="thumbnail_sculpture_description">Sculpture Image</string>
 
 </resources>

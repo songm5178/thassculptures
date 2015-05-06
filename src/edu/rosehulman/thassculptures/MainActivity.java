@@ -23,7 +23,6 @@ public class MainActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
 				Intent intent = new Intent(getApplicationContext(), ToursMapActivity.class);
 				startActivityForResult(intent, REQUEST_CODE_CHANGE_BUTTON);
 
@@ -34,7 +33,6 @@ public class MainActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
 				Intent intent = new Intent(getApplicationContext(), ToursMapActivity.class);
 				startActivityForResult(intent, REQUEST_CODE_CHANGE_BUTTON);
 
@@ -46,8 +44,7 @@ public class MainActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				Intent intent = new Intent(getApplicationContext(), SculptureActivity.class);
+				Intent intent = new Intent(getApplicationContext(), GalleryActivity.class);
 				startActivityForResult(intent, REQUEST_CODE_CHANGE_BUTTON);
 
 			}

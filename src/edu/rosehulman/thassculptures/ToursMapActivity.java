@@ -3,14 +3,18 @@ package edu.rosehulman.thassculptures;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.AdapterView.OnItemClickListener;
 
 import com.appspot.thassculptures.sculptures.Sculptures;
 import com.appspot.thassculptures.sculptures.Sculptures.Sculpture.List;
@@ -28,6 +32,9 @@ public class ToursMapActivity extends FragmentActivity implements OnMapReadyCall
 
 	private Sculptures mService;
 	private ListView listView;
+	public static java.util.List<Sculpture> mSculptures;
+	
+	public static final String TOURS_MAP_SCULPTURE_ID = "TOURS_MAP";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -100,13 +107,29 @@ public class ToursMapActivity extends FragmentActivity implements OnMapReadyCall
 			}
 			ArrayList<String> sculptureNames = new ArrayList<String>();
 			java.util.List<Sculpture> items = result.getItems();
+			mSculptures = items;
 			for (Sculpture s : items) {
 				sculptureNames.add(s.getTitle());
 			}
-
+			SculptureListAdapter adapterTemp = new SculptureListAdapter(getApplicationContext(),
+					result.getItems());// TODO: find use of this with bottom
+			
 			ArrayAdapter<String> adapter = new ArrayAdapter<String>(ToursMapActivity.this,
 					android.R.layout.simple_list_item_1, sculptureNames);
 			listView.setAdapter(adapter);
+			listView.setAdapter(adapter);
+			listView.setOnItemClickListener(new OnItemClickListener() {
+
+				@Override
+				public void onItemClick(AdapterView<?> arg0, View arg1, int pos, long arg3) {
+
+					Intent intent = new Intent(getApplicationContext(), SculptureActivity.class);
+					intent.putExtra(TOURS_MAP_SCULPTURE_ID, pos);
+					
+					startActivityForResult(intent, MainActivity.REQUEST_CODE_CHANGE_BUTTON);
+
+				}
+			});
 		}
 
 	}
