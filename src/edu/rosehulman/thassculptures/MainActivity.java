@@ -1,7 +1,11 @@
 package edu.rosehulman.thassculptures;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.location.Location;
+import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -49,6 +53,17 @@ public class MainActivity extends Activity {
 
 			}
 		});
+		
+		Button websiteButton = (Button) findViewById(R.id.button_website);
+		websiteButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Uri uri = Uri.parse("http://www.wabashvalleyartspaces.com/");
+				Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+				startActivity(intent);
+			}
+		});
 	}
 
 	@Override
@@ -69,4 +84,34 @@ public class MainActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+	
+	public double[] getGPS() {
+		LocationManager lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+		java.util.List<String> providers = lm.getProviders(true);
+		System.out.println(providers);
+		/*
+		 * Loop over the array backwards, and if you get an accurate location,
+		 * then break out the loop
+		 */
+		Location l = null;
+
+		for (int i = providers.size() - 1; i >= 0; i--) {
+			l = lm.getLastKnownLocation(providers.get(i));
+			if (l != null)
+				break;
+		}
+
+		double[] gps = new double[2];
+		if (l != null) {
+			gps[0] = l.getLatitude();
+			gps[1] = l.getLongitude();
+		}
+		return gps;
+	}
+	@Override
+	protected void onResume() {
+		double[] loc = this.getGPS();
+		super.onResume();
+	}
+
 }

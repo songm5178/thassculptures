@@ -17,17 +17,19 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.MeasureSpec;
+import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
-import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.appspot.thassculptures.sculptures.Sculptures;
-import com.appspot.thassculptures.sculptures.Sculptures.Comment;
+import com.appspot.thassculptures.sculptures.model.Comment;
 import com.appspot.thassculptures.sculptures.model.CommentCollection;
 import com.appspot.thassculptures.sculptures.model.Sculpture;
 import com.google.api.client.extensions.android.http.AndroidHttp;
@@ -39,6 +41,7 @@ public class SculptureActivity extends Activity {
 	private Sculpture mSculpture;
 	private ListView listView;
 	ImageView sculptureImage;
+	CommentsListAdapter adapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -58,15 +61,47 @@ public class SculptureActivity extends Activity {
 			pos = intent.getIntExtra(ToursMapActivity.TOURS_MAP_SCULPTURE_ID, -1);
 			mSculpture = ToursMapActivity.mSculptures.get(pos);
 		}
+		
 
 		setUpSculptureCard();
 
 		listView = (ListView) findViewById(R.id.listview_comments);
 
-		new QueryForCommentsTask().execute();
+		updateComments();
+		
+		Button button = (Button) findViewById(R.id.button_send_comment);
+				button.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				EditText name = (EditText)findViewById(R.id.edittext_name);
+				EditText content = (EditText)findViewById(R.id.edittext_comment);
+
+				String n = name.getText().toString();
+				String c = content.getText().toString();
+				String k = mSculpture.getEntityKey();
+				
+				Comment comment = new Comment();
+				comment.setAuthor(n);
+				comment.setContent(c);
+				comment.setSculptureKey(k);
+				
+				if(adapter != null){
+					adapter.add(comment);
+					adapter.notifyDataSetChanged();
+				}
+				new InsertCommentTask().execute(comment);
+				
+				name.setText(null);
+				content.setText(null);
+			}
+		});
 
 	}
 
+	private void updateComments(){
+		new QueryForCommentsTask().execute();
+	}
 	private void setUpSculptureCard() {
 		TextView sculptureName = (TextView) findViewById(R.id.textView_sculptureName);
 		TextView sculptureArtist = (TextView) findViewById(R.id.textView_sculptureArtist);
@@ -181,7 +216,7 @@ public class SculptureActivity extends Activity {
 		protected CommentCollection doInBackground(Void... arg0) {
 			CommentCollection rtn = null;
 			try {
-				Comment.List query = mService.comment().list();
+				com.appspot.thassculptures.sculptures.Sculptures.Comment.List query = mService.comment().list();
 				query.setOrder("-timestamp");
 				query.setLimit(50L);
 				rtn = query.execute();
@@ -199,13 +234,13 @@ public class SculptureActivity extends Activity {
 				Log.d("MIN", "Failed loading comments");
 				return;
 			}
-			ArrayList<com.appspot.thassculptures.sculptures.model.Comment> comments = new ArrayList<com.appspot.thassculptures.sculptures.model.Comment>();
-			for (com.appspot.thassculptures.sculptures.model.Comment c : result.getItems()) {
+			ArrayList<Comment> comments = new ArrayList<Comment>();
+			for (Comment c : result.getItems()) {
 				if (mSculpture.getEntityKey().equals(c.getSculptureKey())) {
 					comments.add(c);
 				}
 			}
-			CommentsListAdapter adapter = new CommentsListAdapter(SculptureActivity.this, comments);
+			adapter = new CommentsListAdapter(SculptureActivity.this, comments);
 
 			listView.setAdapter(adapter);
 			listView.setOnTouchListener(new OnTouchListener() {
@@ -220,6 +255,30 @@ public class SculptureActivity extends Activity {
 				}
 			});
 			setListViewHeightBasedOnChildren(listView);
+		}
+	}
+	class InsertCommentTask extends AsyncTask<Comment, Void, Comment>{
+
+		@Override
+		protected Comment doInBackground(Comment... params) {
+			Comment rtn = null;
+			try{
+				rtn = mService.comment().insert(params[0]).execute();
+			}catch(IOException e){
+				Log.e("MIN", "Failed inserting comment" + e);
+			}
+			
+			return rtn;
+		}
+		@Override
+		protected void onPostExecute(Comment result) {
+			// 
+			super.onPostExecute(result);
+			if(result == null){
+				Log.e("MIN", "Failed inserting comment");
+				return;
+			}
+			updateComments();
 		}
 	}
 }

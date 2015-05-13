@@ -27,7 +27,11 @@
     <string name="add_gallery_text">Add a Picture</string>
     <string name="title_activity_artist_page">ArtistPageActivity</string>
     <string name="title_activity_gallery">GalleryActivity</string>
-    
+    <string name="enter_comment">Enter Comment Here!</string>
+    <string name="enter_name">Enter Name Here!</string>
     <string name="thumbnail_sculpture_description">Sculpture Image</string>
+    <string name="send">Send</string>
+    <string name="name">Name</string>
+    <string name="comment">Comment</string>
 
 </resources>

@@ -480,17 +480,18 @@ containing a value of this type.
         public static final int powered_by_google_light=0x7f020022;
     }
     public static final class id {
-        public static final int about_menu=0x7f0b003a;
-        public static final int action_settings=0x7f0b0034;
+        public static final int about_menu=0x7f0b003f;
+        public static final int action_settings=0x7f0b0039;
         public static final int adjust_height=0x7f0b0000;
         public static final int adjust_width=0x7f0b0001;
         public static final int art_spaces_imageview=0x7f0b001b;
-        public static final int artist_profile_menu=0x7f0b0037;
-        public static final int audio_menu=0x7f0b0036;
+        public static final int artist_profile_menu=0x7f0b003c;
+        public static final int audio_menu=0x7f0b003b;
         public static final int book_now=0x7f0b0010;
         public static final int button_donate=0x7f0b0023;
         public static final int button_gallery=0x7f0b001e;
         public static final int button_map=0x7f0b001d;
+        public static final int button_send_comment=0x7f0b0031;
         public static final int button_tours=0x7f0b0020;
         public static final int button_website=0x7f0b0021;
         public static final int buyButton=0x7f0b000c;
@@ -500,6 +501,8 @@ containing a value of this type.
         public static final int dividor1=0x7f0b0029;
         public static final int dividor2=0x7f0b002c;
         public static final int donate_with_google=0x7f0b0013;
+        public static final int edittext_comment=0x7f0b0030;
+        public static final int edittext_name=0x7f0b002e;
         public static final int grayscale=0x7f0b0015;
         public static final int holo_dark=0x7f0b0007;
         public static final int holo_light=0x7f0b0008;
@@ -511,20 +514,20 @@ containing a value of this type.
         public static final int layout_map_gallery=0x7f0b001c;
         public static final int layout_tours_website=0x7f0b001f;
         public static final int listView_sculptures_gallery=0x7f0b001a;
-        public static final int listview_comments=0x7f0b002d;
-        public static final int listview_sculptures_tours=0x7f0b002f;
-        public static final int map=0x7f0b002e;
-        public static final int map_menu=0x7f0b0038;
+        public static final int listview_comments=0x7f0b0032;
+        public static final int listview_sculptures_tours=0x7f0b0034;
+        public static final int map=0x7f0b0033;
+        public static final int map_menu=0x7f0b003d;
         public static final int match_parent=0x7f0b000e;
         public static final int monochrome=0x7f0b0016;
         public static final int none=0x7f0b0002;
         public static final int normal=0x7f0b0004;
-        public static final int notebook_menu=0x7f0b0039;
+        public static final int notebook_menu=0x7f0b003e;
         public static final int production=0x7f0b0009;
         public static final int sandbox=0x7f0b000a;
         public static final int satellite=0x7f0b0005;
         public static final int selectionDetails=0x7f0b000d;
-        public static final int share_menu=0x7f0b0035;
+        public static final int share_menu=0x7f0b003a;
         public static final int slide=0x7f0b0017;
         public static final int strict_sandbox=0x7f0b000b;
         public static final int terrain=0x7f0b0006;
@@ -533,11 +536,13 @@ containing a value of this type.
         public static final int textView_sculptureArtist=0x7f0b0026;
         public static final int textView_sculptureDescription=0x7f0b0028;
         public static final int textView_sculptureName=0x7f0b0025;
-        public static final int textview_comment_author=0x7f0b0030;
-        public static final int textview_comment_content=0x7f0b0031;
+        public static final int textview_comment=0x7f0b002f;
+        public static final int textview_comment_author=0x7f0b0035;
+        public static final int textview_comment_content=0x7f0b0036;
         public static final int textview_gallery=0x7f0b002b;
-        public static final int thumbnail_sculpture_image=0x7f0b0033;
-        public static final int thumbnail_textView_sculpture_title=0x7f0b0032;
+        public static final int textview_name=0x7f0b002d;
+        public static final int thumbnail_sculpture_image=0x7f0b0038;
+        public static final int thumbnail_textView_sculpture_title=0x7f0b0037;
         public static final int wrap_content=0x7f0b000f;
     }
     public static final class integer {
@@ -570,6 +575,7 @@ containing a value of this type.
         public static final int app_name=0x7f060026;
         public static final int artist_menu_text=0x7f060036;
         public static final int audio_menu_text=0x7f060034;
+        public static final int comment=0x7f060043;
         /**   Text for notification shown when the Android Wear apps needs to be updated. Only shown on the wearable. [CHAR LIMIT=NONE] 
          */
         public static final int common_android_wear_notification_needs_update_text=0x7f060009;
@@ -682,20 +688,24 @@ containing a value of this type.
         public static final int create_calendar_title=0x7f060004;
         public static final int decline=0x7f060003;
         public static final int donate=0x7f06002d;
+        public static final int enter_comment=0x7f06003e;
+        public static final int enter_name=0x7f06003f;
         public static final int gallery=0x7f06002a;
         public static final int gallery_text=0x7f06003a;
         public static final int hello_world=0x7f060027;
         public static final int map=0x7f060029;
         public static final int map_menu_text=0x7f060037;
+        public static final int name=0x7f060042;
         public static final int notebook_menu_text=0x7f060038;
         public static final int sculpture_address=0x7f060032;
         public static final int sculpture_author=0x7f060031;
         public static final int sculpture_description=0x7f060033;
         public static final int sculpture_name=0x7f060030;
+        public static final int send=0x7f060041;
         public static final int share_menu_text=0x7f060035;
         public static final int store_picture_message=0x7f060001;
         public static final int store_picture_title=0x7f060000;
-        public static final int thumbnail_sculpture_description=0x7f06003e;
+        public static final int thumbnail_sculpture_description=0x7f060040;
         public static final int title_activity_artist_page=0x7f06003c;
         public static final int title_activity_gallery=0x7f06003d;
         public static final int title_activity_sculpture=0x7f06002f;
